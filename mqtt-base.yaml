@@ -1,0 +1,12 @@
+mqtt:
+  id: mqtt_client
+  broker: !secret mqtt_host
+  port: !secret mqtt_port
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  birth_message:
+    topic: "esphome/$name"
+    payload: CONNECTED
+  will_message:
+    topic: "esphome/$name"
+    payload: DISCONNECTED
