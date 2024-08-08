@@ -14,16 +14,16 @@ esp32_ble_tracker:
         - lambda: |-
             if(x.get_ibeacon().has_value()) {
               auto ibeacon = x.get_ibeacon().value();
-              // ESP_LOGD("ble_adv", "New ibeacon device");
+              ESP_LOGD("ble_adv", "New ibeacon device");
               auto uuid = ibeacon.get_uuid().to_string();
-              ESP_LOGD("ble_adv", "  orig: %s", uuid.c_str());
+              // ESP_LOGD("ble_adv", "  orig: %s", uuid.c_str());
               std::transform(uuid.begin(), uuid.end(), uuid.begin(),
                 [](unsigned char c){ return std::tolower(c); });
               uuid.erase(remove(uuid.begin(), uuid.end(), '-'), uuid.end());
 
               double rssi = x.get_rssi();
               auto distance = pow(10, (-91.2 - rssi)/100);
-              // ESP_LOGD("ble_adv", "  addr: %s", uuid.c_str());
+              ESP_LOGD("ble_adv", "  addr: %s", uuid.c_str());
               // ESP_LOGD("ble_adv", "  rssi: %lf", rssi);
               // ESP_LOGD("ble_adv", "  dist: %lf", distance);
               auto data = "{\"id\":\"" + uuid + "-1-0\",\"uuid\":\"" + uuid + "\",\"rssi\":" + to_string(rssi) + ",\"major\":1,\"minor\":0,\"txPower\":-59,\"distance\":" + to_string(distance) + "}";
