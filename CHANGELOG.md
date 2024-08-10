@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/chingr-com/esphome-templates/compare/v1.0.0...v1.0.1) (2024-08-10)
+
+
+### Bug Fixes
+
+* decrease BLE scan interval ([8c6ce08](https://github.com/chingr-com/esphome-templates/commit/8c6ce08c57902fd625c6ca4a12b4de455aa2c8dc))
+
 ## 1.0.0 (2024-08-08)
 
 
